@@ -8,40 +8,51 @@
     body {
       font-family: 'Arial', sans-serif;
       text-align: center;
-      margin-top: 100px;
+      margin-top: 50px;
     }
     input {
       font-size: 18px;
       padding: 8px;
+      margin-bottom: 10px;
     }
     button {
       font-size: 18px;
       padding: 8px 16px;
-      margin-left: 10px;
+      margin: 5px;
     }
     #match-result {
-      margin-top: 30px;
+      margin-top: 20px;
       font-size: 20px;
       line-height: 1.6;
+      max-height: 300px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      padding: 10px;
     }
   </style>
 </head>
 <body>
 
-  <h1>💘 나와 100점 궁합인 이름 찾기</h1>
+  <h1>💘 나와 100점 & 90점대 궁합 찾기</h1>
 
-  <!-- ✅ 여기 이 부분이 핵심 입력 영역 -->
-<input id="myname" placeholder="당신의 이름을 입력하세요" />
-<button onclick="findPerfectMatches()">100점 궁합 찾기</button>
+  <input id="myname" placeholder="당신의 이름을 입력하세요 (2~3글자)" /><br>
+  <button onclick="findPerfectMatches()">100점 궁합 찾기</button>
+  <button onclick="find90Matches()">90점대 궁합 찾기</button>
 
-<br><br>
+  <br><br>
+  <input id="score-filter" placeholder="찾고 싶은 점수 (예: 92)" />
+  <button onclick="filterByScore()">해당 점수만 보기</button>
 
-<input id="filter-surname" placeholder="원하는 성씨 (예: 김)" />
-<button onclick="filterBySurname()">해당 성씨만 보기</button>
 
-<div id="match-result" style="max-height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; margin-top: 10px;"></div>
+  <input id="filter-surname" placeholder="원하는 성씨 (예: 김)" />
+  <button onclick="filterBySurname()">해당 성씨만 보기</button>
+  <button onclick="resetFilter()">전체 보기</button>
 
+  <div id="match-result"></div>
+
+  <button onclick="location.href='index.html'" style="margin-top: 20px;">
+    🔙 이름 궁합 테스트로 돌아가기
+  </button>
 
 </body>
 </html>
-
