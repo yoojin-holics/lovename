@@ -26,70 +26,71 @@ function hangulToStroke(char) {
 
 function isPerfectMatch(A1, A2, A3, B1, B2, B3) {
   return (
-      (A1 + 3 * A2 + 3 * B1 + B2) % 10 === 1 &&
-      (3 * A2 + A3 + B1 + 3 * B2) % 10 === 0 &&
-      (A2 + 3 * A3 + 3 * B2 + B3) % 10 === 0
+    (A1 + 3 * A2 + 3 * B1 + B2) % 10 === 1 &&
+    (3 * A2 + A3 + B1 + 3 * B2) % 10 === 0 &&
+    (A2 + 3 * A3 + 3 * B2 + B3) % 10 === 0
   );
 }
 
 function calculateScore(A1, A2, A3, B1, B2, B3) {
   const s1 = (A1 + 3 * A2 + 3 * B1 + B2) % 10;
   const s2 = (3 * A2 + A3 + B1 + 3 * B2) % 10;
-  const s3 = (A2 + 3 * A3 + 3 * B2 + B3) % 10;
   return s1 * 10 + s2;
 }
 
 let lastMatches = [];
 let last90Matches = [];
+let current90Filtered = [];
 
 function findPerfectMatches() {
   const input = document.getElementById("myname").value.trim();
   const result = document.getElementById("match-result");
   result.innerHTML = "이름을 찾는 중...";
 
+  lastMatches = [];
+  last90Matches = [];
+
   if (input.length < 2 || input.length > 3) {
-      result.innerHTML = "이름은 2~3글자만 입력 가능합니다.";
-      return;
+    result.innerHTML = "이름은 2~3글자만 입력 가능합니다.";
+    return;
   }
 
   const A = [...input].map(hangulToStroke);
   if (A.length === 2) A.push(0);
 
-  const firstEvenOdd = A[0] % 2;
-  const lastEvenOdd = A[2] % 2;
-  if (firstEvenOdd === lastEvenOdd) {
-      result.innerHTML = "100점이 불가능한 이름입니다.";
-      return;
+  if (A[0] % 2 === A[2] % 2) {
+    result.innerHTML = "100점이 불가능한 이름입니다.";
+    return;
   }
 
   fetch("surnames.json")
-      .then(res => res.json())
-      .then(surnames => {
-          fetch("names.json")
-              .then(res => res.json())
-              .then(names => {
-                  const matches = [];
-                  for (const first_name of surnames) {
-                      for (const name of names) {
-                          const fullName = first_name + name;
-                          const B = [...fullName].map(hangulToStroke);
-                          if (B.length === 2) B.push(0);
-                          if (isPerfectMatch(A[0], A[1], A[2], B[0], B[1], B[2])) {
-                              matches.push(fullName);
-                          }
-                      }
-                  }
+    .then(res => res.json())
+    .then(surnames => {
+      fetch("names.json")
+        .then(res => res.json())
+        .then(names => {
+          const matches = [];
+          for (const first_name of surnames) {
+            for (const name of names) {
+              const fullName = first_name + name;
+              const B = [...fullName].map(hangulToStroke);
+              if (B.length === 2) B.push(0);
+              if (isPerfectMatch(A[0], A[1], A[2], B[0], B[1], B[2])) {
+                matches.push(fullName);
+              }
+            }
+          }
 
-                  lastMatches = matches;
+          lastMatches = matches;
 
-                  if (matches.length === 0) {
-                      result.innerHTML = "100점 궁합인 이름이 없습니다.";
-                  } else {
-                      result.innerHTML = `<b>${input}</b>님과 100점 궁합인 이름:<br><br>` +
-                          matches.map(n => `💘 ${n}`).join("<br>");
-                  }
-              });
-      });
+          if (matches.length === 0) {
+            result.innerHTML = "100점 궁합인 이름이 없습니다.";
+          } else {
+            result.innerHTML = `<b>${input}</b>님과 100점 궁합인 이름:<br><br>` +
+              matches.map(n => `💘 ${n}`).join("<br>");
+          }
+        });
+    });
 }
 
 function find90Matches() {
@@ -97,42 +98,45 @@ function find90Matches() {
   const result = document.getElementById("match-result");
   result.innerHTML = "90점대 이름을 찾는 중...";
 
+  lastMatches = [];
+  last90Matches = [];
+
   if (input.length < 2 || input.length > 3) {
-      result.innerHTML = "이름은 2~3글자만 입력 가능합니다.";
-      return;
+    result.innerHTML = "이름은 2~3글자만 입력 가능합니다.";
+    return;
   }
 
   const A = [...input].map(hangulToStroke);
   if (A.length === 2) A.push(0);
 
   fetch("surnames.json")
-      .then(res => res.json())
-      .then(surnames => {
-          fetch("names.json")
-              .then(res => res.json())
-              .then(names => {
-                  const matches = [];
-                  for (const first_name of surnames) {
-                      for (const name of names) {
-                          const fullName = first_name + name;
-                          const B = [...fullName].map(hangulToStroke);
-                          if (B.length === 2) B.push(0);
-                          const score = calculateScore(A[0], A[1], A[2], B[0], B[1], B[2]);
-                          if (score >= 90 && score < 100) {
-                              matches.push({ name: fullName, score });
-                          }
-                      }
-                  }
+    .then(res => res.json())
+    .then(surnames => {
+      fetch("names.json")
+        .then(res => res.json())
+        .then(names => {
+          const matches = [];
+          for (const first_name of surnames) {
+            for (const name of names) {
+              const fullName = first_name + name;
+              const B = [...fullName].map(hangulToStroke);
+              if (B.length === 2) B.push(0);
+              const score = calculateScore(A[0], A[1], A[2], B[0], B[1], B[2]);
+              if (score >= 90 && score < 100) {
+                matches.push({ name: fullName, score });
+              }
+            }
+          }
 
-                  last90Matches = matches;
+          last90Matches = matches;
 
-                  if (matches.length === 0) {
-                      result.innerHTML = "90점대가 불가능한 이름입니다.";
-                  } else {
-                      result.innerHTML = "90점대에서 보고 싶은 점수를 입력하세요 (예: 95)";
-                  }
-              });
-      });
+          if (matches.length === 0) {
+            result.innerHTML = "90점대가 불가능한 이름입니다.";
+          } else {
+            result.innerHTML = "90점대에서 보고 싶은 점수를 입력하세요 (예: 95)";
+          }
+        });
+    });
 }
 
 function filterByScore() {
@@ -150,6 +154,8 @@ function filterByScore() {
   }
 
   const filtered = last90Matches.filter(m => m.score === Number(score));
+  current90Filtered = filtered; // 필터링 결과 저장 (성씨 필터와 연동)
+
   if (filtered.length === 0) {
     result.innerHTML = `${score}점 궁합 이름이 없습니다.`;
   } else {
@@ -157,7 +163,6 @@ function filterByScore() {
       filtered.map(m => `💘 ${m.name}`).join("<br>");
   }
 }
-
 
 function filterBySurname() {
   const filter = document.getElementById("filter-surname").value.trim();
@@ -174,19 +179,18 @@ function filterBySurname() {
       ? `${filter}씨 성을 가진 100점 궁합 이름이 없습니다.`
       : `<b>${filter}</b>씨 성을 가진 100점 궁합:<br><br>` +
         filtered.map(n => `💘 ${n}`).join("<br>");
-  } else if (last90Matches.length > 0) {
-    const filtered = last90Matches.filter(m => m.name.startsWith(filter));
+  } else if (current90Filtered.length > 0) {
+    const filtered = current90Filtered.filter(m => m.name.startsWith(filter));
     if (filtered.length === 0) {
       result.innerHTML = `${filter}씨 성을 가진 90점대 궁합 이름이 없습니다.`;
     } else {
-      // 점수별로 그룹화
       const grouped = {};
       filtered.forEach(m => {
         if (!grouped[m.score]) grouped[m.score] = [];
         grouped[m.score].push(m.name);
       });
       result.innerHTML = `<b>${filter}</b>씨 성을 가진 90점대 궁합:<br><br>` +
-        Object.keys(grouped).sort().map(score =>
+        Object.keys(grouped).sort((a, b) => b - a).map(score =>
           `<b>${score}점:</b><br>` +
           grouped[score].map(name => `💘 ${name}`).join("<br>")
         ).join("<br><br>");
@@ -196,17 +200,24 @@ function filterBySurname() {
   }
 }
 
-
-
 function resetFilter() {
   const result = document.getElementById("match-result");
 
   if (lastMatches.length > 0) {
-      result.innerHTML = `<b>전체 100점 궁합 이름:</b><br><br>` +
-          lastMatches.map(n => `💘 ${n}`).join("<br>");
+    result.innerHTML = `<b>전체 100점 궁합 이름:</b><br><br>` +
+      lastMatches.map(n => `💘 ${n}`).join("<br>");
   } else if (last90Matches.length > 0) {
-      result.innerHTML = `<b>전체 90점대 궁합 이름 (점수 선택 후 필터링 가능):</b>`;
+    const grouped = {};
+    last90Matches.forEach(m => {
+      if (!grouped[m.score]) grouped[m.score] = [];
+      grouped[m.score].push(m.name);
+    });
+    result.innerHTML = `<b>전체 90점대 궁합 이름:</b><br><br>` +
+      Object.keys(grouped).sort((a, b) => b - a).map(score =>
+        `<b>${score}점:</b><br>` +
+        grouped[score].map(name => `💘 ${name}`).join("<br>")
+      ).join("<br><br>");
   } else {
-      result.innerHTML = "먼저 이름을 입력하고 궁합을 찾으세요!";
+    result.innerHTML = "먼저 이름을 입력하고 궁합을 찾으세요!";
   }
 }

@@ -49,6 +49,25 @@
     .item span {
       font-size: 1rem;
     }
+
+
+    .balloon {
+      display: inline-block;
+      background-color: #4f46e5;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .balloon:hover {
+      background-color: #3b3aeb;
+    }
+
   </style>
 </head>
 <body>
@@ -62,7 +81,10 @@
   <input type="text" id="nameInput" placeholder="이름 (2~3글자)" />
   <button onclick="showRanking()">순위 보기</button>
   <div class="list" id="rankingList"></div>
-
+  
+  <div class="balloon" onclick="location.href='why.html'">
+    나는 왜 100점, 90점대가 불가능할까?
+  </div>
   <script>
     const strokeDict = {
       "ㄱ":2,"ㄲ":4,"ㄴ":2,"ㄷ":3,"ㄸ":6,"ㄹ":5,"ㅁ":4,"ㅂ":4,"ㅃ":8,"ㅅ":2,"ㅆ":4,"ㅇ":1,"ㅈ":3,"ㅉ":6,"ㅊ":4,"ㅋ":3,"ㅌ":4,"ㅍ":4,"ㅎ":3,
