@@ -1,53 +1,65 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" version="24.7.16">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" version="27.0.6">
   <diagram name="사이트 구조도" id="xW1EYCMI22myMGag8ivd">
-    <mxGraphModel dx="1434" dy="738" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="710" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="4JN9tGl0HPpNQjGBfXnn-1" value="index.html&#xa;(이름 궁합 계산)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f2fe;strokeColor=#0284c7;" vertex="1" parent="1">
+        <mxCell id="4JN9tGl0HPpNQjGBfXnn-1" value="index.html&#xa;(이름 궁합 계산)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f2fe;strokeColor=#0284c7;" parent="1" vertex="1">
           <mxGeometry x="320" y="80" width="160" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="4JN9tGl0HPpNQjGBfXnn-2" value="script.js&#xa;(공통 계산 로직)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ede9fe;strokeColor=#7c3aed;" vertex="1" parent="1">
+        <mxCell id="4JN9tGl0HPpNQjGBfXnn-2" value="script.js&#xa;(공통 계산 로직)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ede9fe;strokeColor=#7c3aed;" parent="1" vertex="1">
           <mxGeometry x="320" y="160" width="160" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="4JN9tGl0HPpNQjGBfXnn-3" value="match.html&#xa;(100점/90점 궁합 찾기)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;" vertex="1" parent="1">
+        <mxCell id="4JN9tGl0HPpNQjGBfXnn-3" value="match.html&#xa;(100점/90점 궁합 찾기)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;" parent="1" vertex="1">
           <mxGeometry x="100" y="260" width="180" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="4JN9tGl0HPpNQjGBfXnn-4" value="why.html&#xa;(왜 점수가 안 나오는가?)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef9c3;strokeColor=#ca8a04;" vertex="1" parent="1">
+        <mxCell id="4JN9tGl0HPpNQjGBfXnn-4" value="why.html&#xa;(왜 점수가 안 나오는가?)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef9c3;strokeColor=#ca8a04;" parent="1" vertex="1">
           <mxGeometry x="500" y="260" width="180" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="4JN9tGl0HPpNQjGBfXnn-5" value="surnames.json" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f0f9ff;strokeColor=#0284c7;" vertex="1" parent="1">
-          <mxGeometry x="30" y="360" width="100" height="40" as="geometry" />
+        <mxCell id="4JN9tGl0HPpNQjGBfXnn-5" value="surnames.json" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f0f9ff;strokeColor=#0284c7;" parent="1" vertex="1">
+          <mxGeometry x="60" y="360" width="100" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="4JN9tGl0HPpNQjGBfXnn-6" value="names.json" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f0f9ff;strokeColor=#0284c7;" vertex="1" parent="1">
-          <mxGeometry x="160" y="360" width="100" height="40" as="geometry" />
+        <mxCell id="4JN9tGl0HPpNQjGBfXnn-6" value="names.json" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f0f9ff;strokeColor=#0284c7;" parent="1" vertex="1">
+          <mxGeometry x="210" y="360" width="100" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="4JN9tGl0HPpNQjGBfXnn-7" value="students.json" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f0f9ff;strokeColor=#0284c7;" vertex="1" parent="1">
-          <mxGeometry x="290" y="360" width="100" height="40" as="geometry" />
+        <mxCell id="4JN9tGl0HPpNQjGBfXnn-7" value="students.json" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f0f9ff;strokeColor=#0284c7;" parent="1" vertex="1">
+          <mxGeometry x="350" y="360" width="100" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="4JN9tGl0HPpNQjGBfXnn-8" value="gsa.webp&#xa;(로고 이미지)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fef2f2;strokeColor=#ef4444;" vertex="1" parent="1">
-          <mxGeometry x="420" y="360" width="100" height="40" as="geometry" />
+        <mxCell id="4JN9tGl0HPpNQjGBfXnn-8" value="gsa.webp&#xa;(로고 이미지)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fef2f2;strokeColor=#ef4444;" parent="1" vertex="1">
+          <mxGeometry x="540" y="90" width="100" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="4JN9tGl0HPpNQjGBfXnn-9" style="endArrow=block;html=1;" edge="1" parent="1" source="4JN9tGl0HPpNQjGBfXnn-1" target="4JN9tGl0HPpNQjGBfXnn-2">
+        <mxCell id="4JN9tGl0HPpNQjGBfXnn-9" style="endArrow=block;html=1;" parent="1" source="4JN9tGl0HPpNQjGBfXnn-1" target="4JN9tGl0HPpNQjGBfXnn-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="4JN9tGl0HPpNQjGBfXnn-10" style="endArrow=block;html=1;" edge="1" parent="1" source="4JN9tGl0HPpNQjGBfXnn-2" target="4JN9tGl0HPpNQjGBfXnn-3">
+        <mxCell id="4JN9tGl0HPpNQjGBfXnn-10" style="endArrow=block;html=1;" parent="1" source="4JN9tGl0HPpNQjGBfXnn-2" target="4JN9tGl0HPpNQjGBfXnn-3" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="4JN9tGl0HPpNQjGBfXnn-11" style="endArrow=block;html=1;" edge="1" parent="1" source="4JN9tGl0HPpNQjGBfXnn-2" target="4JN9tGl0HPpNQjGBfXnn-4">
+        <mxCell id="4JN9tGl0HPpNQjGBfXnn-11" style="endArrow=block;html=1;" parent="1" source="4JN9tGl0HPpNQjGBfXnn-2" target="4JN9tGl0HPpNQjGBfXnn-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="4JN9tGl0HPpNQjGBfXnn-12" style="endArrow=block;html=1;" edge="1" parent="1" source="4JN9tGl0HPpNQjGBfXnn-3" target="4JN9tGl0HPpNQjGBfXnn-5">
+        <mxCell id="4JN9tGl0HPpNQjGBfXnn-12" style="endArrow=block;html=1;" parent="1" source="4JN9tGl0HPpNQjGBfXnn-3" target="4JN9tGl0HPpNQjGBfXnn-5" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="4JN9tGl0HPpNQjGBfXnn-13" style="endArrow=block;html=1;" edge="1" parent="1" source="4JN9tGl0HPpNQjGBfXnn-3" target="4JN9tGl0HPpNQjGBfXnn-6">
+        <mxCell id="4JN9tGl0HPpNQjGBfXnn-13" style="endArrow=block;html=1;" parent="1" source="4JN9tGl0HPpNQjGBfXnn-3" target="4JN9tGl0HPpNQjGBfXnn-6" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="4JN9tGl0HPpNQjGBfXnn-14" style="endArrow=block;html=1;" edge="1" parent="1" source="4JN9tGl0HPpNQjGBfXnn-3" target="4JN9tGl0HPpNQjGBfXnn-7">
+        <mxCell id="4JN9tGl0HPpNQjGBfXnn-15" style="endArrow=block;html=1;" parent="1" source="4JN9tGl0HPpNQjGBfXnn-1" target="4JN9tGl0HPpNQjGBfXnn-8" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="4JN9tGl0HPpNQjGBfXnn-15" style="endArrow=block;html=1;" edge="1" parent="1" source="4JN9tGl0HPpNQjGBfXnn-1" target="4JN9tGl0HPpNQjGBfXnn-8">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="HHqrm-4sxtkIpWj2r3We-5" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="HHqrm-4sxtkIpWj2r3We-6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="350" as="sourcePoint" />
+            <mxPoint x="400" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HHqrm-4sxtkIpWj2r3We-6" value="rank.html&lt;div&gt;(학년 궁합 랭킹)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="310" y="260" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="HHqrm-4sxtkIpWj2r3We-7" style="endArrow=block;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="HHqrm-4sxtkIpWj2r3We-6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="410" y="210" as="sourcePoint" />
+            <mxPoint x="310" y="260" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
